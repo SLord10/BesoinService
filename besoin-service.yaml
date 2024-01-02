@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: besoin-deployment
+  labels:
+    app: besoin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: besoin
+  template:
+    metadata:
+      name: besoin
+      labels:
+        app: besoin
+    spec:
+      containers:
+        - name: besoin-container
+          image: slord11/besoin
+          ports:
+            - containerPort: 8083
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: besoin-service
+spec:
+  selector:
+    app: besoin
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8083
