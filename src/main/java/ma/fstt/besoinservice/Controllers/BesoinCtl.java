@@ -13,6 +13,7 @@ import java.util.Map;
 
 @RequestMapping("/besoin")
 @RestController
+@CrossOrigin
 public class BesoinCtl {
 
     @Autowired
