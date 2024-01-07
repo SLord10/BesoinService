@@ -22,5 +22,5 @@ public class Besoin {
     private Float coordoonnees_x;
     private Float coordoonnees_y;
     private String etat;
-    private Long user_id;
+    private String username;
 }
